@@ -2,16 +2,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* Root */
-:root {
+:root, :root[data-theme="dark"] {
     --primary-color: #F0F0F0;
+
     --primary-bg-color: #111217;
     --secondary-bg-color: #28292E;
+
     --border-color: #28292E;
 
     --title-color: #9A9A9C;
     --text-color: #9A9A9C;
     --link-color: #9A9A9C;
     --icon-color: #C7C8C9;
+}
+
+:root[data-theme="light"] {
+    --primary-color: #0B0B0F;
+    
+    --primary-bg-color: #E9E9E9;
+    --secondary-bg-color: #C7C8C9;
+
+    --border-color: #C7C8C9;
+
+    --title-color: #0B0B0F;
+    --text-color: #28292E;
+    --link-color: #28292E;
+    --icon-color: #56575A;
+}
+
+html[data-theme="light"] .brand__logo {
+    filter: invert();
 }
 
 body {
@@ -21,10 +41,17 @@ body {
 
 a {
     text-decoration: none;
+    color: var(--text-color);
 }
 
+a:hover {
+    color: var(--primary-color);
+    font-weight: 600;
+}
 i {
     color: var(--icon-color);
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
 }
 
 .header {
